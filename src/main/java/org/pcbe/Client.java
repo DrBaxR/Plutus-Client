@@ -19,17 +19,21 @@ public class Client {
         }
     }
 
-    public String sendMessage(String msg) {
-        out.println(msg);
+    public void sendOption(String option) {
+        // will probably have to change
+        out.println(option);
+    }
 
-        String resp = null;
+    public String getResponse() {
+        // will have to change
+        String response = null;
         try {
-            resp = in.readLine();
+            response = in.readLine();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return resp;
+        return response;
     }
 
     public void stopConnection() {
@@ -41,5 +45,4 @@ public class Client {
             e.printStackTrace();
         }
     }
-
 }
