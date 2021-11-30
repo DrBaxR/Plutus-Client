@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Client client = new Client();
         client.startConnection("127.0.0.1", 4444);
         System.out.println("Transmission started...");
@@ -16,8 +16,10 @@ public class Main {
                 break;
             System.out.println(menu);
 
-            String option = in.nextLine();
-            client.gatherExtraAndSendOption(in, Integer.parseInt(option)); // suppose it is actually an integer
+//            String option = in.nextLine();
+//            client.gatherExtraAndSendOption(in, Integer.parseInt(option)); // suppose it is actually an integer
+            Thread.sleep(1000);
+            client.sendRandomRequest();
 
             String response = client.getResponse();
             if (response == null)

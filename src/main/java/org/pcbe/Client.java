@@ -6,6 +6,8 @@ import org.pcbe.util.Communication;
 
 import java.net.*;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Client {
@@ -48,5 +50,18 @@ public class Client {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void sendRandomRequest() {
+        //random number 1/2
+        var rand = (int) (Math.random() * 2) + 1;
+        List<String> stockName = new ArrayList<>();
+        stockName.add("STK1");
+        stockName.add("STK2");
+        stockName.add("STK3");
+        stockName.add("STK4");
+        var name = stockName.get((int) (Math.random() *4) + 0);
+        var quantity = (int) (Math.random() * 100) + 20;
+        Communication.sendMessage(out, rand, name, quantity);
     }
 }
