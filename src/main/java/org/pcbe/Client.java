@@ -33,10 +33,7 @@ public class Client {
             quantity = Integer.parseInt(input.nextLine());
         }
 
-        ClientMessage messageToSend = new ClientMessage(option, stockName, quantity);
-        String serializedMessage = new Gson().toJson(messageToSend);
-
-        out.println(serializedMessage);
+        Communication.sendMessage(out, option, stockName, quantity);
     }
 
     public String getResponse() {
