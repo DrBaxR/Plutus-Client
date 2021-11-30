@@ -17,7 +17,7 @@ public class Main {
             System.out.println(menu);
 
             String option = in.nextLine();
-            client.sendOption(option);
+            client.gatherExtraAndSendOption(in, Integer.parseInt(option)); // suppose it is actually an integer
 
             String response = client.getResponse();
             if (response == null)

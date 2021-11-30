@@ -1,9 +1,12 @@
 package org.pcbe;
 
+import com.google.gson.Gson;
+import org.pcbe.dto.ClientMessage;
 import org.pcbe.util.Communication;
 
 import java.net.*;
 import java.io.*;
+import java.util.Scanner;
 
 public class Client {
 
@@ -21,9 +24,19 @@ public class Client {
         }
     }
 
-    public void sendOption(String option) {
-        // TODO: will probably have to change
-        out.println(option);
+    public void gatherExtraAndSendOption(Scanner input, int option) {
+        String stockName = null;
+        Integer quantity = null;
+
+        if (option != 3) {
+            stockName = input.nextLine();
+            quantity = Integer.parseInt(input.nextLine());
+        }
+
+        ClientMessage messageToSend = new ClientMessage(option, stockName, quantity);
+        String serializedMessage = new Gson().toJson(messageToSend);
+
+        out.println(serializedMessage);
     }
 
     public String getResponse() {
