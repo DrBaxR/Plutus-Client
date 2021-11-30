@@ -14,8 +14,8 @@ public class Main {
             String menu = client.getResponse();
             if (menu == null)
                 break;
-
             System.out.println(menu);
+
             String option = in.nextLine();
             client.sendOption(option);
 

@@ -1,5 +1,7 @@
 package org.pcbe;
 
+import org.pcbe.util.Communication;
+
 import java.net.*;
 import java.io.*;
 
@@ -20,20 +22,12 @@ public class Client {
     }
 
     public void sendOption(String option) {
-        // will probably have to change
+        // TODO: will probably have to change
         out.println(option);
     }
 
     public String getResponse() {
-        // will have to change
-        String response = null;
-        try {
-            response = in.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return response;
+        return Communication.readMessage(in);
     }
 
     public void stopConnection() {
